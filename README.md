@@ -8,8 +8,6 @@
 ## Play Now
 
 - 首頁：<https://tufreegames.github.io/>
-- 渡劫修仙：<https://tufreegames.github.io/game/tribulation-ascension/>
-- 貪食蛇：<https://tufreegames.github.io/game/snake/>
 
 ## 專案特色
 
@@ -17,39 +15,5 @@
 - 可直接部署到 GitHub Pages
 - 多款可直接遊玩的 Canvas 小遊戲
 
-## 本機啟動
-
-```bash
-python -m http.server 8000
-```
-
-開啟：<http://127.0.0.1:8000/>
-
-## 目錄結構
-
-```text
-/
-  index.html
-  styles.css
-  script.js
-  /assets
-    game-icon_tribulation-ascension.png
-    icon_main-menu.png
-  /game
-    /tribulation-ascension
-      index.html
-      game.css
-      game.js
-      /assets
-        bg.png
-        /audio
-        /sprites
-    /snake
-      index.html
-      game.css
-      game.js
-```
-
----
 
 © 2026 Tu Free Games
