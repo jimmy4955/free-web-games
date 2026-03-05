@@ -216,9 +216,13 @@ const finalScoreEl = document.getElementById('finalScore');
 const finalStageEl = document.getElementById('finalStage');
 const finalRealmEl = document.getElementById('finalRealm');
 const finalBestEl = document.getElementById('finalBest');
+const BOOT_AD_SESSION_KEY = 'tfg_tribulation_boot_ad_seen';
 
 let completedRuns = 0;
 let adBreakLoaded = false;
+let hasBootAdShown = false;
+let adBreakCountdownTimer = null;
+let adBreakAfterClose = null;
 
 let state = 'menu';
 let w = 0;
@@ -794,7 +798,7 @@ function showAdBreakModal(options = {}) {
 
   const {
     title = '稍作休息，下一局準備開始',
-    hint = '廣告載入中，關閉後即可繼續。',
+    hint = '',
     countdownSec = 0,
     autoCloseOnCountdown = false,
     onClose = null
@@ -827,7 +831,7 @@ function showAdBreakModal(options = {}) {
     let remain = countdownSec;
     adBreakContinueBtn.disabled = true;
     adBreakContinueBtn.textContent = autoCloseOnCountdown
-      ? `${remain} 秒後自動開始`
+      ? `${remain}秒後自動關閉`
       : `${remain} 秒後可關閉`;
     adBreakCountdownTimer = setInterval(() => {
       remain -= 1;
@@ -841,7 +845,7 @@ function showAdBreakModal(options = {}) {
         }
       } else {
         adBreakContinueBtn.textContent = autoCloseOnCountdown
-          ? `${remain} 秒後自動開始`
+          ? `${remain}秒後自動關閉`
           : `${remain} 秒後可關閉`;
       }
     }, 1000);
@@ -1432,11 +1436,28 @@ function requestStartGame() {
   startGame();
 }
 
+function hasSeenBootAdInSession() {
+  try {
+    return sessionStorage.getItem(BOOT_AD_SESSION_KEY) === '1';
+  } catch (_err) {
+    return false;
+  }
+}
+
+function markBootAdSeenInSession() {
+  try {
+    sessionStorage.setItem(BOOT_AD_SESSION_KEY, '1');
+  } catch (_err) {
+    // ignore storage-blocked environments
+  }
+}
 function runFirstBootAd() {
-  if (hasBootAdShown) {
+  if (hasBootAdShown || hasSeenBootAdInSession()) {
+    hasBootAdShown = true;
     return;
   }
   hasBootAdShown = true;
+  markBootAdSeenInSession();
   if (startBtn) {
     startBtn.disabled = true;
     startBtn.textContent = '開始加載...';
@@ -1444,7 +1465,7 @@ function runFirstBootAd() {
 
   showAdBreakModal({
     title: '遊戲加載中',
-    hint: '首次進入正在載入資源，廣告將於 5 秒後自動關閉。',
+    hint: '',
     countdownSec: 5,
     autoCloseOnCountdown: true,
     onClose: () => {
@@ -1452,8 +1473,7 @@ function runFirstBootAd() {
         startBtn.disabled = false;
         startBtn.textContent = '開始遊戲';
       }
-      setPrelaunchActive(false);
-      startGame();
+      setPrelaunchActive(true);
     }
   });
 }
@@ -1916,6 +1936,13 @@ async function init() {
 }
 
 init();
+
+
+
+
+
+
+
 
 
 

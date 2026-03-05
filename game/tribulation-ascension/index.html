@@ -43,7 +43,7 @@
       </aside>
 
       <section class="card game-stage" aria-label="遊戲畫面">
-        <div class="game-viewport prelaunch" id="gameViewport">
+        <div class="game-viewport" id="gameViewport">
           <canvas id="game" aria-label="渡劫修仙遊戲畫面"></canvas>
           <div class="wave-banner" id="waveBanner" aria-live="polite">
             <div class="wave-status" id="waveStatus">渡劫開始</div>
@@ -73,7 +73,6 @@
               <p>開始後使用 <code>A / D</code> 或 <code>← / →</code> 左右移動，閃避每一道雷劫。</p>
               <p class="hint">累積突破值可提升境界，突破後可選擇天賦強化能力。</p>
               <button id="startBtn">開始遊戲</button>
-              <a class="home-link" href="../../index.html">回主頁</a>
             </div>
 
             <div class="panel" id="buffPickPanel" hidden>
@@ -99,7 +98,6 @@
               </div>
               <div class="actions">
                 <button id="restartBtn">再來一次</button>
-                <a class="home-link" href="../../index.html">回主頁</a>
               </div>
             </div>
           </div>
@@ -114,11 +112,47 @@
           隨著境界提升，雷劫會變得更加猛烈，玩家必須合理搭配天賦與道途，才能在天劫之中存活更久。
           你的目標是突破更高境界，挑戰更高分數。
         </p>
+
+        <h3>遊戲操作：</h3>
+        <p>A / ← ：向左移動</p>
+        <p>D / → ：向右移動</p>
+
+        <h3>境界系統：</h3>
+        <p>練氣、築基、金丹、元嬰、化神。修仙者會隨著突破逐步提升境界。</p>
+
+        <h3>天賦系統：</h3>
+        <p>護體：增加護盾值</p>
+        <p>回氣：生命恢復速度提升</p>
+        <p>罡氣：減少雷劫傷害</p>
+        <p>悟性：突破值累積速度增加</p>
+        <p>煉血：提升最大生命值</p>
+        <p>凝神：提升突破穩定度</p>
+
+        <h3>道途系統：</h3>
+        <p>玄武金身道：</p>
+        <p>條件：鐵骨 Lv.3 + 罡氣 Lv.2</p>
+        <p>效果：大幅減少雷劫傷害</p>
+        <p>長生回春道：</p>
+        <p>條件：回氣 Lv.3 + 護心 Lv.2</p>
+        <p>效果：持續恢復生命</p>
+        <p>通明悟道道：</p>
+        <p>條件：悟性 Lv.3 + 凝神 Lv.2</p>
+        <p>效果：突破速度提升</p>
+        <p>血煉化劫道：</p>
+        <p>條件：煉血 Lv.3 + 金身 Lv.2</p>
+        <p>效果：雷劫傷害部分轉化為生命</p>
+
+        <h3>遊戲目標：</h3>
+        <p>在雷劫中存活更久，挑戰更高的分數紀錄</p>
+        <p>突破更多境界，解鎖更強的天賦與道途</p>
+        <p>每一局的天賦選擇不同，道途也會不同</p>
+        <p>每一次渡劫都是全新的修仙體驗</p>
       </section>
     </main>
 
     <div class="ad-break-modal" id="adBreakModal" hidden>
       <div class="ad-break-panel" role="dialog" aria-modal="true" aria-label="廣告視窗">
+        <h3 id="adBreakTitle">遊戲加載中</h3>
         <!-- Multimedia advertising -->
         <ins
           class="adsbygoogle"
@@ -128,9 +162,7 @@
           data-ad-format="auto"
           data-full-width-responsive="true"
         ></ins>
-        <h3 id="adBreakTitle">稍作休息，下一局準備開始</h3>
-        <p id="adBreakHint">廣告載入中，關閉後即可繼續。</p>
-        <button id="adBreakContinueBtn" type="button">繼續遊戲</button>
+        <button id="adBreakContinueBtn" type="button">5秒後自動關閉</button>
       </div>
     </div>
 
@@ -143,4 +175,8 @@
     <script src="./game.js"></script>
   </body>
 </html>
+
+
+
+
 
