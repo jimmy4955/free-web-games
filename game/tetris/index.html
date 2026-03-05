@@ -1,0 +1,160 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>俄羅斯方塊｜Free Web Games Hub</title>
+    <meta name="description" content="經典俄羅斯方塊，7-bag 隨機、等級速度曲線、支援鍵盤操作。" />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8908217023822331"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="top-strip">
+      <div class="page-wrap top-strip-inner">
+        <nav class="top-bar" aria-label="主選單">
+          <a class="icon-button" href="../../index.html" aria-label="返回主頁">
+            <img src="../../assets/icon_main-menu.png" alt="" />
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <main class="page-wrap game-page">
+      <aside class="card side-ad" aria-label="左側廣告">
+        <!-- Multimedia advertising -->
+        <ins
+          class="adsbygoogle"
+          style="display: block"
+          data-ad-client="ca-pub-8908217023822331"
+          data-ad-slot="7095251020"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        ></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </aside>
+
+      <section class="card game-stage" aria-label="遊戲畫面">
+        <div class="game-viewport prelaunch" id="gameViewport">
+          <div class="tetris-shell">
+            <section class="board-panel">
+              <canvas id="board" width="360" height="720" aria-label="俄羅斯方塊棋盤"></canvas>
+              <div class="overlay" id="overlay">
+                <h1 id="overlayTitle">🧱 俄羅斯方塊</h1>
+                <p id="overlayText"></p>
+                <button id="startBtn" type="button">開始遊戲</button>
+              </div>
+            </section>
+
+            <aside class="side-panel">
+              <h1 class="title">俄羅斯方塊</h1>
+
+              <div class="card stat">
+                <span>分數</span>
+                <strong id="score">0</strong>
+              </div>
+              <div class="card stat">
+                <span>等級</span>
+                <strong id="level">0</strong>
+              </div>
+              <div class="card stat">
+                <span>消行</span>
+                <strong id="lines">0</strong>
+              </div>
+
+              <div class="card next-box">
+                <span>下顆</span>
+                <canvas id="next" width="120" height="120" aria-label="下一顆方塊"></canvas>
+              </div>
+
+              <div class="card options">
+                <label class="toggle">
+                  <input id="ghostToggle" type="checkbox" />
+                  <span>落影提示</span>
+                </label>
+              </div>
+
+              <div class="card help">
+                <p>← →：移動</p>
+                <p>↓：加速</p>
+                <p>X：右旋</p>
+                <p>Z：左旋</p>
+                <p>Space：速降</p>
+                <p>P：暫停/繼續</p>
+                <p>R：重新開始</p>
+                <p>Esc：返回標題</p>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="card game-info" aria-labelledby="game-info-title">
+        <h2 id="game-info-title">🧩 俄羅斯方塊</h2>
+        <p>《俄羅斯方塊》是一款經典的小遊戲。</p>
+        <p>
+          玩家需要控制不斷落下的方塊，將不同形狀的方塊旋轉並放置到適合的位置。當一整排方塊被填滿時，該行就會消除並獲得分數。隨著遊戲進行，方塊下落速度會逐漸加快，玩家需要更快地思考與操作。
+          不同形狀的方塊會不斷出現，玩家必須提前規劃位置，避免方塊堆積過高。一旦方塊堆到頂部，遊戲就會結束。
+          你的目標是在有限的空間中持續消除方塊，創造更高的分數紀錄。
+        </p>
+
+        <h3>遊戲操作：</h3>
+        <p>← →：移動</p>
+        <p>↓：加速</p>
+        <p>X：右旋</p>
+        <p>Z：左旋</p>
+        <p>Space：速降</p>
+        <p>P：暫停/繼續</p>
+        <p>R：重新開始</p>
+        <p>Esc：返回標題</p>
+
+        <h3>消除系統：</h3>
+        <p>當一整排方塊被填滿時：</p>
+        <p>• 該行會立即消除</p>
+        <p>• 上方方塊會向下掉落</p>
+        <p>• 玩家獲得分數</p>
+        <p>一次消除多行會獲得更高分數。</p>
+
+        <h3>遊戲目標：</h3>
+        <p>消除更多方塊行數，獲得更高分數。</p>
+        <p>挑戰更快的方塊速度。</p>
+        <p>在有限空間中維持整齊的方塊堆疊。</p>
+      </section>
+    </main>
+
+    <div class="ad-break-modal" id="adBreakModal" hidden>
+      <div class="ad-break-panel" role="dialog" aria-modal="true" aria-label="廣告視窗">
+        <h3 id="adBreakTitle">遊戲加載中</h3>
+        <!-- Multimedia advertising -->
+        <ins
+          class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-8908217023822331"
+          data-ad-slot="7095251020"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        ></ins>
+        <button id="adBreakContinueBtn" type="button">5秒後自動關閉</button>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="page-wrap">
+        <small>© 2026 Tu Free Games</small>
+      </div>
+    </footer>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
