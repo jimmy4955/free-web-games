@@ -1,4 +1,5 @@
-User-agent: *
+﻿User-agent: *
 Allow: /
 
-Sitemap: https://jimmy4955.github.io/free-web-games/sitemap.xml
+Sitemap: https://tufreegames.github.io/sitemap.xml
+
