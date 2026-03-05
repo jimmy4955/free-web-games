@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>渡劫修仙</title>
+    <meta
+      name="description"
+      content="渡劫修仙：鍵盤左右移動閃避雷劫，累積突破值、提升境界並選擇天賦與道途。"
+    />
+    <link rel="stylesheet" href="./game.css" />
+  </head>
+  <body>
+    <div class="top-strip">
+      <div class="page-wrap top-strip-inner">
+        <nav class="top-bar" aria-label="主頁功能列">
+          <a class="icon-button" href="../../index.html" aria-label="返回主頁面">
+            <img src="../../assets/icon_main-menu.png" alt="" />
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <main class="page-wrap game-page">
+      <section class="card game-stage" aria-label="遊戲視窗">
+        <div class="game-viewport" id="gameViewport">
+          <canvas id="game" aria-label="渡劫修仙遊戲畫面"></canvas>
+          <div class="wave-banner" id="waveBanner" aria-live="polite">
+            <div class="wave-status" id="waveStatus">渡劫開始</div>
+            <div class="wave-stage" id="waveStage">渡劫次數：0</div>
+          </div>
+
+          <div class="hud" id="hud">
+            <div>最高分：<span id="best">0</span></div>
+            <div>當前分：<span id="score">0</span></div>
+            <div class="hud-sep" aria-hidden="true"></div>
+            <div>血量：<span id="hp">10/10</span></div>
+            <div>境界：<span id="realm">練氣初期</span></div>
+            <div class="break-wrap">
+              <span>突破：</span>
+              <div class="break-track">
+                <div class="break-fill" id="breakFill"></div>
+                <span id="breakText">0/40</span>
+              </div>
+            </div>
+            <div class="buff-line">天賦：<span id="buffs">無</span></div>
+            <div class="buff-line" id="daoLabel">道途：無</div>
+          </div>
+
+          <div class="overlay" id="overlay">
+            <div class="panel" id="startPanel">
+              <h1>渡劫修仙</h1>
+              <p>使用鍵盤 `A / D` 或 `← / →` 左右移動，閃避落雷並累積突破值。</p>
+              <p class="hint">每次突破可選擇天賦，符合條件時會出現道途卡。</p>
+              <button id="startBtn">開始遊戲</button>
+              <a class="home-link" href="../../index.html">回主頁</a>
+            </div>
+
+            <div class="panel" id="buffPickPanel" hidden>
+              <h2 id="buffTitle">突破成功！選擇一項天賦</h2>
+              <div class="buff-grid" id="buffGrid"></div>
+            </div>
+
+            <div class="panel" id="gameOverPanel" hidden>
+              <h2>渡劫成果</h2>
+              <div class="result-list">
+                <p class="result-row">
+                  <span class="result-label">本局分數：</span><span class="result-value" id="finalScore">0</span>
+                </p>
+                <p class="result-row">
+                  <span class="result-label">渡劫次數：</span><span class="result-value" id="finalStage">0</span>
+                </p>
+                <p class="result-row">
+                  <span class="result-label">最高境界：</span><span class="result-value" id="finalRealm">練氣初期</span>
+                </p>
+                <p class="result-row">
+                  <span class="result-label">最佳成績：</span><span class="result-value" id="finalBest">0</span>
+                </p>
+              </div>
+              <div class="actions">
+                <button id="restartBtn">再來一次</button>
+                <a class="home-link" href="../../index.html">回主頁</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card game-info" aria-labelledby="game-info-title">
+        <h2 id="game-info-title">渡劫修仙</h2>
+        <p>透過鍵盤左右移動閃避雷劫，累積突破值、提升境界並強化天賦。</p>
+        <p>
+          道途解鎖條件(每局僅能選擇一條道途)<br />
+          玄武金身道：鐵骨Lv.3 + 罡氣Lv.2<br />
+          長生回春道：回氣Lv.3 + 護心Lv.2<br />
+          通明悟道道：悟性Lv.3 + 凝神Lv.2<br />
+          血煉化劫道：煉血Lv.3 + 金身Lv.2
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="page-wrap">
+        <small>© 2026 Tu Free Games</small>
+      </div>
+    </footer>
+
+    <script src="./game.js"></script>
+  </body>
+</html>
